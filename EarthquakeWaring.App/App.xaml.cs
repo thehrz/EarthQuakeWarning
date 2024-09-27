@@ -102,10 +102,10 @@ namespace EarthquakeWaring.App
             // For UI
             service.AddTransient<MainWindow>();
             service.AddTransient<SettingsPage>();
+            service.AddTransient<WelcomePage>();
             service.AddTransient<EarthQuakesListPage>();
             service.AddTransient<EarthQuakeDetail>();
             service.AddTransient<SettingsPageViewModel>();
-            service.AddTransient<EarthQuakeExamplesPage>();
 
             service.AddSingleton<ITrayIconHolder, TrayIconHolder>();
 

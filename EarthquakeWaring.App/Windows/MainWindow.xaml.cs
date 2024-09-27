@@ -23,7 +23,12 @@ namespace EarthquakeWaring.App.Windows
             base.OnInitialized(e);
             App.RootFrame = RootFrame;
             App.MainWindowOpened = true;
-            RootFrame.Navigate(new WelcomePage());
+            RootFrame.Navigate(_services.GetService<WelcomePage>());
+        }
+
+        private void OnNavigatingWelcome(object sender, RoutedEventArgs e)
+        {
+            RootFrame.Navigate(_services.GetService<WelcomePage>());
         }
 
         private void OnNavigatingSettings(object sender, RoutedEventArgs e)
@@ -34,11 +39,6 @@ namespace EarthquakeWaring.App.Windows
         private void OnNavigatingEarthQuakesList(object sender, RoutedEventArgs e)
         {
             RootFrame.Navigate(_services.GetService<EarthQuakesListPage>());
-        }
-
-        private void OnNavigateExamples(object sender, RoutedEventArgs e)
-        {
-            RootFrame.Navigate(_services.GetService<EarthQuakeExamplesPage>());
         }
 
         private void MainWindow_OnClosed(object? sender, EventArgs e)

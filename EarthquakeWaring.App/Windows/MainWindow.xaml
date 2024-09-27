@@ -40,12 +40,12 @@
                 SelectedPageIndex="0">
                 <wpfui:NavigationStore.Items>
                     <wpfui:NavigationItem
-                        Click="OnNavigatingEarthQuakesList"
-                        Content="地震列表"
+                        Click="OnNavigatingWelcome"
+                        Content="主页"
                         Icon="Globe24" />
                     <wpfui:NavigationItem
-                        Click="OnNavigateExamples"
-                        Content="预警案例"
+                        Click="OnNavigatingEarthQuakesList"
+                        Content="地震列表"
                         Icon="Book24" />
                 </wpfui:NavigationStore.Items>
                 <wpfui:NavigationStore.Footer>
