@@ -4,6 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:EarthquakeWaring.App"
     xmlns:pages="clr-namespace:EarthquakeWaring.App.Pages"
+    xmlns:extensions="clr-namespace:EarthquakeWaring.App.Extensions"
+    xmlns:viewModels="clr-namespace:EarthquakeWaring.App.Infrastructure.Models.ViewModels"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="地震预警"
     Width="800"
@@ -11,6 +13,12 @@
     Closed="MainWindow_OnClosed"
     Style="{StaticResource UiWindow}"
     WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <viewModels:MainWindowViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <extensions:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -52,7 +60,9 @@
                     <wpfui:NavigationItem
                         Click="OnNavigatingSettings"
                         Content="设置"
-                        Icon="Settings24" />
+                        Icon="Settings24"
+                        Visibility="{Binding IsHideSettings, Converter={StaticResource BoolToVisibilityConverter}}"
+                    />
                 </wpfui:NavigationStore.Footer>
             </wpfui:NavigationStore>
 

@@ -9,12 +9,19 @@ public class UpdaterSetting : INotificationOption
 {
     private int _updateTimeSpanSecond = 5;
     private bool _showNotifyIcon = true;
+    private bool _hideSettings = false;
     private int _apiType = 0;
 
     public bool ShowNotifyIcon
     {
         get => _showNotifyIcon;
         set => SetField(ref _showNotifyIcon, value);
+    }
+
+    public bool HideSettings
+    {
+        get => _hideSettings;
+        set => SetField(ref _hideSettings, value);
     }
 
     public int UpdateTimeSpanSecond

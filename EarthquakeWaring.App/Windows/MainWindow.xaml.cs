@@ -1,5 +1,8 @@
-﻿using EarthquakeWaring.App.Pages;
+﻿using EarthquakeWaring.App.Infrastructure.Models.SettingModels;
+using EarthquakeWaring.App.Infrastructure.ServiceAbstraction;
+using EarthquakeWaring.App.Pages;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.Windows;
 

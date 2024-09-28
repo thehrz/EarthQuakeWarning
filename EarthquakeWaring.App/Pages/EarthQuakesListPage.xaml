@@ -41,6 +41,7 @@
                             Background="{Binding Stage, Converter={StaticResource StageToColor}}"
                             CornerRadius="5">
                             <wpfui:SymbolIcon
+                                FontSize="25"
                                 Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                 Symbol="ErrorCircle24"
                                 Visibility="{Binding DontUseShouldAlert, Converter={StaticResource BoolToVisibilityConverter}}" />

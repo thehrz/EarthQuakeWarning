@@ -332,6 +332,17 @@
         </wpfui:CardControl>
         <wpfui:CardControl
             Margin="0,12,0,0"
+            Icon="ContractDownLeft24">
+            <wpfui:CardControl.Header>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="隐藏设置面板" FontWeight="Bold"/>
+                    <TextBlock Text="是否隐藏设置面板, 重启应用后生效" FontWeight="Light"/>
+                </StackPanel>
+            </wpfui:CardControl.Header>
+            <wpfui:ToggleSwitch x:Name="HideSettings" IsChecked="{Binding UpdateSetting.Setting.HideSettings, Mode=TwoWay}" />
+        </wpfui:CardControl>
+        <wpfui:CardControl
+            Margin="0,12,0,0"
             Click="CloseClick"
             Icon="Power24">
             <wpfui:CardControl.Header>
