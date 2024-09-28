@@ -61,6 +61,7 @@ public partial class EarlyWarningWindow : Window
             var basicInfoSpeech = new SpeechSynthesizer();
             basicInfoSpeech.SelectVoice(_speech.GetInstalledVoices(CultureInfo.InstalledUICulture)[0].VoiceInfo.Name);
             basicInfoSpeech.SetOutputToDefaultAudioDevice();
+            SystemSounds.Beep.Play();
             basicInfoSpeech.SpeakAsync(
                 $"{information.Position} 发生 {information.Magnitude:F1} 级 地震" +
                 _intensityDescriptor.Convert(_information.Intensity, typeof(string), null!, null!));
@@ -85,7 +86,7 @@ public partial class EarlyWarningWindow : Window
             if (_information.CountDown <= 0 && _trackerSetting.Setting?.BroadcastCountDown is true)
             {
                 _information.PropertyChanged -= InformationOnPropertyChanged;
-                _speech.SpeakAsync("地震到达，" +
+                _speech.SpeakAsync("地震已抵达，" +
                                    _intensityDescriptor.Convert(_information.Intensity, typeof(string), null!,
                                        null!));
                 return;

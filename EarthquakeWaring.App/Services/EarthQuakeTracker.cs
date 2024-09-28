@@ -92,16 +92,6 @@ public class EarthQuakeTracker : IEarthQuakeTracker
             latestInfo = simulatingInfo;
         }
 
-        if ((DateTime.Now + timeHandler!.Offset - SimulateTimeSpan - latestInfo.StartAt).TotalSeconds >
-            _trackingInformation.TheoryCountDown + 30)
-        {
-            _logger.LogInformation("Earthquake Expired for {Time} but theory {Theory} Quitting.",
-                                   (DateTime.Now + timeHandler!.Offset - SimulateTimeSpan - latestInfo.UpdateAt)
-                                   .TotalSeconds,
-                                   _trackingInformation.TheoryCountDown + 30);
-            _tokenSource?.Cancel(); // Expired Information
-            return;
-        }
 
         Application.Current.Dispatcher.Invoke(() =>
         {
