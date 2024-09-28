@@ -13,9 +13,6 @@
     Closed="MainWindow_OnClosed"
     Style="{StaticResource UiWindow}"
     WindowStartupLocation="CenterScreen">
-    <Window.DataContext>
-        <viewModels:MainWindowViewModel/>
-    </Window.DataContext>
     <Window.Resources>
         <extensions:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     </Window.Resources>

@@ -1,10 +1,12 @@
 ﻿using EarthquakeWaring.App.Infrastructure.Models.SettingModels;
+using EarthquakeWaring.App.Infrastructure.Models.ViewModels;
 using EarthquakeWaring.App.Infrastructure.ServiceAbstraction;
 using EarthquakeWaring.App.Pages;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Windows;
+using Wpf.Ui.Mvvm.Interfaces;
 
 namespace EarthquakeWaring.App.Windows
 {
@@ -19,6 +21,8 @@ namespace EarthquakeWaring.App.Windows
         {
             _services = services;
             InitializeComponent();
+
+            this.DataContext = new MainWindowViewModel(_services.GetService<ISetting<UpdaterSetting>>());
         }
 
         protected override void OnInitialized(EventArgs e)

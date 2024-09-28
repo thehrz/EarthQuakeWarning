@@ -1,3 +1,5 @@
+using EarthquakeWaring.App.Infrastructure.Models.SettingModels;
+using EarthquakeWaring.App.Infrastructure.ServiceAbstraction;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -5,7 +7,9 @@ using System.Runtime.CompilerServices;
 namespace EarthquakeWaring.App.Infrastructure.Models.ViewModels;
 
 public class MainWindowViewModel : INotifyPropertyChanged
-{
+{    
+  public ISetting<UpdaterSetting>? UpdateSetting { get; set; }
+
 
     private bool _isHideSettings = false;
     public bool IsHideSettings
@@ -27,5 +31,12 @@ public class MainWindowViewModel : INotifyPropertyChanged
         field = value;
         OnPropertyChanged(propertyName);
         return true;
+    }
+
+    public MainWindowViewModel(
+        ISetting<UpdaterSetting>? updateSetting)
+    {
+        UpdateSetting = updateSetting;
+        _isHideSettings = UpdateSetting?.Setting?.HideSettings ?? false;
     }
 }
