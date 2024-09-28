@@ -241,12 +241,25 @@
                     Margin="0,12,0,0">
                     <wpfui:CardControl.Header>
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Text="预警时调整最大音量" FontWeight="Bold"/>
-                            <TextBlock Text="会将默认输出设备音量调至最大" FontWeight="Light"/>
+                            <TextBlock Text="预警时调整音量" FontWeight="Bold"/>
+                            <TextBlock Text="会将默认输出设备音量调至此数值" FontWeight="Light"/>
                         </StackPanel>
                     </wpfui:CardControl.Header>
-                    <wpfui:ToggleSwitch IsChecked="{Binding TrackerSetting.Setting.MaximumVolume, Mode=TwoWay}" />
-                </wpfui:CardControl>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Grid.Column="0"
+                            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                            Text="{Binding TrackerSetting.Setting.Volume, Mode=OneWay}" />
+                        <Slider
+                            Grid.Column="1"
+                            Maximum="100"
+                            Minimum="0"
+                            Value="{Binding TrackerSetting.Setting.Volume, Mode=TwoWay}" />
+                    </Grid>                </wpfui:CardControl>
                 <wpfui:CardControl
                     Margin="0,12,0,0">
                     <wpfui:CardControl.Header>

@@ -2,6 +2,6 @@
 {
     public interface IVolumeManager
     {
-        public void SetVolumeToMax();
+        public void SetVolume(int volume);
     }
 }

@@ -5,14 +5,13 @@ namespace EarthquakeWaring.App.Services
 {
     public class VolumeManager : IVolumeManager
     {
-        public void SetVolumeToMax()
+        public void SetVolume(int volume)
         {
             using (var deviceEnumerator = new MMDeviceEnumerator())
             {
                 using (var device = deviceEnumerator.GetDefaultAudioEndpoint(DataFlow.Render, Role.Multimedia))
                 {
-                    device.AudioEndpointVolume.Mute = false;
-                    device.AudioEndpointVolume.MasterVolumeLevelScalar = 1;
+                    device.AudioEndpointVolume.MasterVolumeLevelScalar = volume / 100.0f;
                 }
             }
         }

@@ -37,8 +37,7 @@ public partial class EarlyWarningWindow : Window
         _volumeManager = _service.GetRequiredService<IVolumeManager>();
         DataContext = information;
         InitializeComponent();
-        if (_trackerSetting?.Setting?.MaximumVolume is not false)
-            _volumeManager?.SetVolumeToMax();
+        _volumeManager?.SetVolume(_trackerSetting?.Setting?.Volume ?? 50);
         _speech = new SpeechSynthesizer();
         _speech.SelectVoice(_speech.GetInstalledVoices(CultureInfo.InstalledUICulture)[0].VoiceInfo.Name);
         _speech.SetOutputToDefaultAudioDevice();
